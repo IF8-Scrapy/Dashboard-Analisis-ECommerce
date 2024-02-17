@@ -51,12 +51,15 @@ def Tab_Audrey(df_order_items):
     st.dataframe(jumlah_penjualan_per_seller)
     st.pyplot(fig)
 
-    st.markdown("5 teratas seller yang menjual produk terbanyak")
-    st.markdown("1. 6560211a19b47992c3666cc44a7e94c0  jumlah produk terjual 2033")
-    st.markdown("2. 4a3ca9315b744ce9f8e9374361493884  jumlah produk terjual 1987")
-    st.markdown("3. 1f50f920176fa81dab994f9023523100  jumlah produk terjual 1931")
-    st.markdown("4. cc419e0650a3c5ba77189a1882b7556a  jumlah produk terjual 1775")
-    st.markdown("5. da8622b14eb17ae2831f4ac5b9dab84a  jumlah produk terjual 1551")
+    with st.expander("Penjelasan 5 teratas seller yang menjual produk terbanyak") :
+        st.markdown('''**Dapat disimpulkan 5 seller teratas yang menjual produk terbanyak yaitu**:
+    1. 6560211a19b47992c3666cc44a7e94c0  jumlah produk terjual 2033
+    2. 4a3ca9315b744ce9f8e9374361493884  jumlah produk terjual 1987
+    3. 1f50f920176fa81dab994f9023523100  jumlah produk terjual 1931
+    4. cc419e0650a3c5ba77189a1882b7556a  jumlah produk terjual 1775
+    5. da8622b14eb17ae2831f4ac5b9dab84a  jumlah produk terjual 1551''')
+        
+    st.write('<hr>', unsafe_allow_html=True)
 
     st.header("Pertanyaan 2: \"Seller mana yang menjual produk paling banyak (memvisualisasi hanya 5 teratas), lalu seller mana yang menjual produk tersebut dan berapa banyak penghasilan seller tersebut?\"")
     # Menghitung jumlah produk yang dijual oleh setiap seller
@@ -79,14 +82,19 @@ def Tab_Audrey(df_order_items):
     st.dataframe(produk_terbanyak)
     st.pyplot(fig)
 
-    st.markdown(":> 5 teratas produk yang paling banyak terjual")
-    st.markdown("   1. aca2eb7d00ea1a7b8ebd4e68314663af    527")
-    st.markdown("   2. 99a4788cb24856965c36a24e339b6058    488")
-    st.markdown("   3. 422879e10f46682990de24d770e7f83d    484")
-    st.markdown("   4. 389d119b48cf3043d311335e499d9c6b    392")
-    st.markdown("   5. 368c6c730842d78016ad823897a372db    388")
-    st.markdown(":> lalu mencari seller yang mejual id produk tersebut : 955fee9216a65b617aa5c0531780ce60")
-    st.markdown(":> Penghasilan seller tersebut : 135171.7")
+    with st.expander("Penjelasan Penjualan 5 produk terlaris, mencari seller yang menjual produk terlaris dan berapa penghasilan seller tersebut.") :
+        st.markdown('''**Dapat disimpulkan 5 produk terlaris yaitu : **:
+    1. aca2eb7d00ea1a7b8ebd4e68314663af    527
+    2. 99a4788cb24856965c36a24e339b6058    488
+    3. 422879e10f46682990de24d770e7f83d    484
+    4. 389d119b48cf3043d311335e499d9c6b    392
+    5. 368c6c730842d78016ad823897a372db    388''')
+        st.markdown('''**Seller yang menjual id produk tersebut adalah : 955fee9216a65b617aa5c0531780ce60**:
+    ''')
+        st.markdown('''**Penghasilan seller tersebut : 135171.7**:
+    ''')
+        
+    st.write('<hr>', unsafe_allow_html=True)
 
 def Tab_Laras(df_sellers):
     st.header("Pertanyaan 3: \"Negara mana yang memiliki banyak seller dan sedikit sedikit seller?\"")
