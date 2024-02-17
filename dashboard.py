@@ -355,7 +355,7 @@ with st.sidebar :
 if (selected == 'Dashboard') :
     st.header(f"Dashboard Analisis E-Commerce")
     st.header("Kelompok Scrapy - IF8")
-    tab1,tab2,tab3,tab4,tab5,tab6 = st.tabs(["10122283- Audrey", "10122285 - Laras", "10122301 - Raka", "10122302 - Steave", "10122303 - Juli", "10122309 - Dhimas Kurnia"])
+    tab1,tab2,tab3,tab4,tab5,tab6 = st.tabs(["10122283- Audrey", "10122285 - Laras", "10122302 - Steave", "10122303 - Juli", "10122309 - Dhimas Kurnia", "10122301 - Raka"])
 
     with tab1 :
         Tab_Audrey(df_order_items)
