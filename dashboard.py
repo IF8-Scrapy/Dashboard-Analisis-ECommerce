@@ -329,6 +329,8 @@ def Tab_Raka(df_order_items, df_orders, df_products, df_product_category_name_tr
     grouped_data = grouped_data.sort_values(by='count', ascending=False)
     st.dataframe(grouped_data)
 
+    st.write('Peta akan muncul setelah beberapa saat.');
+
     # Plotting
     # fig, ax = plt.subplots(figsize=(10, 10))
     # world = load_world()
