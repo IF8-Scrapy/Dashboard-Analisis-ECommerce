@@ -362,10 +362,10 @@ if (selected == 'Dashboard') :
     with tab2 :
         Tab_Laras(df_sellers)
     with tab3 :
-        Tab_Raka(df_order_items, df_orders, df_products, df_product_category_name_translation, df_geolocation)
-    with tab4 :
         Tab_Steave(df_customers)
-    with tab5 :
+    with tab4 :
         Tab_Juli(df_order_payments)
-    with tab6 :
+    with tab5 :
         Tab_Dhimas(df_order_payments)
+    with tab6 :
+        Tab_Raka(df_order_items, df_orders, df_products, df_product_category_name_translation, df_geolocation)
