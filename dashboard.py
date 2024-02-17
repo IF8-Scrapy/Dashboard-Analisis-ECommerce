@@ -99,32 +99,11 @@ def Tab_Laras(df_sellers):
     ax.bar(jumlah_seller_per_negara.index.tolist(), jumlah_seller_per_negara.values.tolist())
     st.pyplot(fig)
 
-    st.header("Pertanyaan 3: \"Dari pertanyaan No 3 dapat menyimpulkan bahwa negara dengan seller terbanyak dan terdikit adalah\"")
+    with st.expander("Penjelasan negara dengan seller terbanyak dan sedikit") :
+            st.write('Dilihat dari grafik di atas kita dapat menyimpilkan bahwa negara dengan seller terbanyak dan terdikit adalah Negara terbanyak adalah 1. 1849 = SP, 2. 349 = PR, 3. 244 = MG, 4. 190 = SC,5.  171 = RJ, 6. 129 = RS 1. 1 = PA, AM, MA, AC, PI., 2. 2 = RO, SE, 3. 4 = MT, 4. 5 = MS, RN, 5. 6 = PB, 6. 9 = PE, 7. 13 = CE, 8. 19 = BA, 9. 23 = ES, 10. 30 = DF, 11. 40 = GO')
 
-    st.write(
-        """
-        **Negara terbanyak adalah**
-1. 1849 = SP
-2. 349 = PR
-3. 244 = MG
-4. 190 = SC
-5. 171 = RJ
-6. 129 = RS
 
-**Negara tersedikit adalah**
-1. 1 = PA, AM, MA, AC, PI.
-2. 2 = RO, SE
-3. 4 = MT
-4. 5 = MS, RN
-5. 6 = PB
-6. 9 = PE
-7. 13 = CE
-8. 19 = BA
-9. 23 = ES
-10. 30 = DF
-11. 40 = GO
-        """
-    )
+
 
 def Tab_Steave(df_customers):
     st.header("Pertanyaan 4: \"10 kota dengan customer terbanyak?\"")
