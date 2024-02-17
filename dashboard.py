@@ -16,9 +16,17 @@ def load_data_dates(url, dates):
     return df
 
 # Menyiapkan data untuk plotting
+@st.cache_data
 def load_world():
-    world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
+    world = gpd.read_file('geopandas/ne_110m_admin_0_sovereignty.shp')
     return world
+
+@st.cache_data
+def load_geodataframe(df_geolocation):
+    df_geolocation.rename(columns={'geolocation_lat': 'latitude'}, inplace=True)
+    df_geolocation.rename(columns={'geolocation_lng': 'longitude'}, inplace=True)
+    gdf = gpd.GeoDataFrame(df_geolocation, geometry=gpd.points_from_xy(df_geolocation['longitude'], df_geolocation['latitude']))
+    return gdf
 
 df_customers = load_data('dataset/customers_dataset.csv')
 df_order_items = load_data('dataset/order_items_dataset.csv')
@@ -307,18 +315,19 @@ def Tab_Raka(df_order_items, df_orders, df_products, df_product_category_name_tr
     st.header('Persebaran Lokasi yang Terdaftar')
 
     # Membuat GeoDataFrame dari data
-    gdf = gpd.GeoDataFrame(df_geolocation, geometry=gpd.points_from_xy(df_geolocation['geolocation_lng'], df_geolocation['geolocation_lat']))
+    gdf = load_geodataframe(df_geolocation)
 
     grouped_data = df_geolocation.groupby('geolocation_state').size().reset_index(name='count')
     grouped_data = grouped_data.sort_values(by='count', ascending=False)
     st.dataframe(grouped_data)
 
     # Plotting
-    fig, ax = plt.subplots(figsize=(10, 10))
-    world = load_world()
-    world.plot(ax=ax, color='lightgrey', edgecolor='black')
-    gdf.plot(ax=ax, markersize=5, color='red', alpha=0.5)
-    st.pyplot(fig)
+    # fig, ax = plt.subplots(figsize=(10, 10))
+    # world = load_world()
+    # world.plot(ax=ax, color='lightgrey', edgecolor='black')
+    # gdf.plot(ax=ax, markersize=5, color='red', alpha=0.5)
+    # st.pyplot(fig)
+    st.map(gdf)
 
     with st.expander("Penjelasan Persebaran Lokasi") :
         st.markdown('''Hampir semua yang terdaftar berasal dari negara Brasil, dengan mayoritas berasal dari negara bagian Sao Paulo(SP), Minas Gerais(MG), dan Rio de Janeiro(RJ).''')
